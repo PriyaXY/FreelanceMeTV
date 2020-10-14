@@ -17,11 +17,9 @@ ActiveRecord::Schema.define(version: 2020_09_16_175942) do
 
   create_table "companies", force: :cascade do |t|
     t.text "description"
-    t.bigint "user_id", null: false
     t.string "company_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "forums", force: :cascade do |t|
@@ -61,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_09_16_175942) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "companies", "users"
   add_foreign_key "forums", "random_usernames"
   add_foreign_key "random_usernames", "users"
   add_foreign_key "reviews", "companies"
