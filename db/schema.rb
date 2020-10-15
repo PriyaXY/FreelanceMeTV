@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_175942) do
+ActiveRecord::Schema.define(version: 2020_10_15_200822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
+    t.string "name"
     t.text "description"
-    t.string "company_name"
+    t.string "location"
+    t.string "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,11 +39,9 @@ ActiveRecord::Schema.define(version: 2020_09_16_175942) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "company_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_reviews_on_company_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -61,6 +61,5 @@ ActiveRecord::Schema.define(version: 2020_09_16_175942) do
 
   add_foreign_key "forums", "random_usernames"
   add_foreign_key "random_usernames", "users"
-  add_foreign_key "reviews", "companies"
   add_foreign_key "reviews", "users"
 end
