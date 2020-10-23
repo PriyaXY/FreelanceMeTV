@@ -1,0 +1,12 @@
+      <%= simple_form_for (@company_new) do |f| %>
+<!--       THIS NEEDS TO BE CHANGED TO REVIEW PARAMS NOT COMPANIES  -->
+<div>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :size %>
+  <%= f.button :submit, class: "btn-main" %>
+</div>
+<% end %>
+
+<button class="button2"><%= link_to "View all Companies", companies_path %></button>

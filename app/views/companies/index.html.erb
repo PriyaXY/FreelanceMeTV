@@ -1,3 +1,16 @@
 <% @companies.each do |c| %>
+<%= link_to company_path(c.id) do %>
+<div class="product">
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
 <h2><%= c.name %></h2>
+  </div>
+</div>
+</div>
 <% end %>
+<% end %>
+
+
+
+
